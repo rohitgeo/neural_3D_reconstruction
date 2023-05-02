@@ -1,1 +1,3 @@
 Contains models generated from BCE loss 5x weight on positive example using single image only. 
+
+Example images only. Test set is much larger than this.
