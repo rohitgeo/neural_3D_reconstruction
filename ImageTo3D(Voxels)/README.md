@@ -15,3 +15,10 @@ Run the file `python train_model.py --type 'vox'`, to train single view to voxel
 
 After trained, visualize the input RGB, ground truth voxel grid and predicted voxel in `eval_model.py` file using:
 `python eval_model.py --type 'vox' --load_checkpoint`
+
+
+Model weights for Conv3DTranpose architecture:
+https://drive.google.com/file/d/1ycAPZE3rY6P9y-hir6vj4YJ4Me_lzfko/view?usp=share_link
+
+Model weights for Linear:
+https://drive.google.com/file/d/1aS8SiJLmEBMar4kjsN32cRqougg3izTz/view?usp=sharing
