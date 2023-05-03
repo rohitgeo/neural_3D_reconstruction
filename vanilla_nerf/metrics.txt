@@ -1,3 +1,9 @@
+nerf
+Epoch: 0249, Loss: 0.003377, PSNR: 24.713591: : 100it [00:10,  9.54it/s]
+
+nerf_no_view_dependence
+Epoch: 0249, Loss: 0.003111, PSNR: 25.069162: : 100it [00:11,  8.81it/s]
+
 fern
 Epoch: 9999, Loss: 0.000981, PSNR: 30.078926: : 17it [00:01, 10.18it/s]
 

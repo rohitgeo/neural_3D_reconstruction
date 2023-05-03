@@ -6,7 +6,7 @@ import numpy as np
 import torch
 import tqdm
 import imageio
-
+from functools import partial
 from omegaconf import DictConfig
 from PIL import Image
 from pytorch3d.renderer import (
@@ -248,6 +248,7 @@ def create_model(cfg):
     start_epoch = 0
 
     checkpoint_path = os.path.join(
+        #r"C:\OMSCS\dl\project\nerf_project\vanilla_nerf", 
         hydra.utils.get_original_cwd(),
         cfg.training.checkpoint_path
     )
@@ -288,6 +289,7 @@ def create_model(cfg):
         optimizer, lr_lambda, last_epoch=start_epoch - 1, verbose=False
     )
 
+    lr_scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr=cfg.training.lr, total_steps=10000, pct_start=0.1)
     return model, optimizer, lr_scheduler, start_epoch, checkpoint_path
 
 def train_nerf(
@@ -373,7 +375,7 @@ def train_nerf(
                     model, create_surround_cameras(4.0, n_poses=20, up=(0.0, 0.0, 1.0), focal_length=2.0),
                     cfg.data.image_size, file_prefix='nerf'
                 )
-                imageio.mimsave('images/part_3.gif', [np.uint8(im * 255) for im in test_images])
+                imageio.mimsave(f'images/part_3_hr_n6_noembed_{epoch}.gif', [np.uint8(im * 255) for im in test_images])
 
 
 @hydra.main(config_path='./configs', config_name='sphere')

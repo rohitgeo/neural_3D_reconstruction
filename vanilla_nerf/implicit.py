@@ -2,7 +2,7 @@ import torch
 import torch.nn.functional as F
 from torch import nn
 from ray_utils import RayBundle
-
+from functools import partial
 
 # Sphere SDF class
 class SphereSDF(torch.nn.Module):
@@ -220,7 +220,6 @@ class MLPWithInputSkips(torch.nn.Module):
 
 # implicit_function:
 #   type: nerf
-
 #   n_harmonic_functions_xyz: 6
 #   n_harmonic_functions_dir: 2
 #   n_hidden_neurons_xyz: 128
@@ -228,6 +227,8 @@ class MLPWithInputSkips(torch.nn.Module):
 #   density_noise_std: 0.0
 #   n_layers_xyz: 6
 #   append_xyz: [3]
+
+# Implementation of NeRF
 class NeRF(torch.nn.Module):
     def __init__(self, cfg):
         super(NeRF, self).__init__()
@@ -268,8 +269,148 @@ class NeRF(torch.nn.Module):
             'density': density,
             'feature': color
         }
-                                        
+
+
+# Implementation of NeRF without view dependence
+class NeRFWithoutViewDependence(torch.nn.Module):
+    def __init__(self, cfg):
+        super().__init__()
+
+        self.emb_pts = HarmonicEmbedding(in_channels=3, 
+                                         n_harmonic_functions=cfg.n_harmonic_functions_xyz)
+
+        self.mlp = MLPWithInputSkips(n_layers=cfg.n_layers_xyz,
+                                    input_dim=self.emb_pts.output_dim,
+                                    output_dim=cfg.n_hidden_neurons_xyz,
+                                    skip_dim=self.emb_pts.output_dim,
+                                    hidden_dim=cfg.n_hidden_neurons_xyz,
+                                    input_skips=cfg.append_xyz)
+
+        self.density_head = nn.Sequential(nn.Linear(cfg.n_hidden_neurons_xyz, 1), nn.ReLU())
+
+        self.color_head = nn.Sequential(nn.Linear(cfg.n_hidden_neurons_xyz, cfg.n_hidden_neurons_dir),
+                                         nn.ReLU(),
+                                         nn.Linear(cfg.n_hidden_neurons_dir, 3),
+                                         nn.Sigmoid())
+    def forward(self, ray_bundle):
+        
+        pts = ray_bundle.sample_points
+        point_embeddings = self.emb_pts(pts)
+        out = self.mlp(point_embeddings, point_embeddings)
+        
+        density = self.density_head(out)
+        color = self.color_head(out)
+
+        out = {
+            'density': density,
+            'feature': color
+        }
+        # print(out)
+        # exit(1)
+        return out
+
+
+
+
+class NeRFHiRes(torch.nn.Module):
+    def __init__(self, cfg):
+        super().__init__()
+
+        self.emb_pts = HarmonicEmbedding(in_channels=3, 
+                                         n_harmonic_functions=cfg.n_harmonic_functions_xyz)
+        self.emb_dir = HarmonicEmbedding(in_channels=3, 
+                                         n_harmonic_functions=cfg.n_harmonic_functions_dir)
+
+        self.mlp = MLPWithInputSkipsMish(n_layers=cfg.n_layers_xyz,
+                                    input_dim=self.emb_pts.output_dim,
+                                    output_dim=cfg.n_hidden_neurons_xyz,
+                                    skip_dim=self.emb_pts.output_dim,
+                                    hidden_dim=cfg.n_hidden_neurons_xyz,
+                                    input_skips=cfg.append_xyz)
+
+        self.density_head = nn.Sequential(nn.Linear(cfg.n_hidden_neurons_xyz, 1), nn.ReLU(True))
+
+        self.color_head = nn.Sequential(nn.Linear(cfg.n_hidden_neurons_xyz + self.emb_dir.output_dim, cfg.n_hidden_neurons_dir),
+                                         nn.ReLU(True),
+                                         nn.Linear(cfg.n_hidden_neurons_dir, 3),
+                                         nn.Sigmoid())
+    def forward(self, ray_bundle):
+        
+        pts = ray_bundle.sample_points
+        dir = ray_bundle.directions
+
+        point_embeddings = self.emb_pts(pts)
+
+        out = self.mlp(point_embeddings, point_embeddings)
+        
+        density = self.density_head(out)
+
+        dir_embeddings = self.emb_dir(dir).unsqueeze(1).repeat(1, pts.shape[1], 1)
+        color = self.color_head(torch.cat([out, dir_embeddings], dim=-1))
+
+        return {
+            'density': density,
+            'feature': color
+        }
+
+# Mish - "Mish: A Self Regularized Non-Monotonic Neural Activation Function"
+# https://arxiv.org/abs/1908.08681v1
+# implemented for PyTorch / FastAI by lessw2020 
+# github: https://github.com/lessw2020/mish
+
+class Mish(nn.Module):
+    def __init__(self):
+        super().__init__()
+
+    def forward(self, x):
+        #inlining this saves 1 second per epoch (V100 GPU) vs having a temp x and then returning x(!)
+        return x *( torch.tanh(F.softplus(x)))
+
+class MLPWithInputSkipsMish(torch.nn.Module):
+    def __init__(
+        self,
+        n_layers: int,
+        input_dim: int,
+        output_dim: int,
+        skip_dim: int,
+        hidden_dim: int,
+        input_skips,
+    ):
+        super().__init__()
+
+        layers = []
+
+        for layeri in range(n_layers):
+            if layeri == 0:
+                dimin = input_dim
+                dimout = hidden_dim
+            elif layeri in input_skips:
+                dimin = hidden_dim + skip_dim
+                dimout = hidden_dim
+            else:
+                dimin = hidden_dim
+                dimout = hidden_dim
+
+            linear = torch.nn.Linear(dimin, dimout)
+            layers.append(torch.nn.Sequential(linear, Mish(), nn.BatchNorm1d(192)))
+
+        self.mlp = torch.nn.ModuleList(layers)
+        self._input_skips = set(input_skips)
+
+    def forward(self, x: torch.Tensor, z: torch.Tensor) -> torch.Tensor:
+        y = x
+
+        for li, layer in enumerate(self.mlp):
+            if li in self._input_skips:
+                y = torch.cat((y, z), dim=-1)
+
+            y = layer(y)
+
+        return y
+
 volume_dict = {
     'sdf_volume': SDFVolume,
-    'nerf': NeRF
+    'nerf': NeRF,
+    'nerf_noviewdep': NeRFWithoutViewDependence,
+    'nerf_hires': NeRFHiRes
 }

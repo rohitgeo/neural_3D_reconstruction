@@ -75,7 +75,7 @@ def get_nerf_datasets(
         val_dataset: The validation dataset object.
         test_dataset: The testing dataset object.
     """
-
+    print(image_size, data_root)
     if dataset_name not in ALL_DATASETS:
         raise ValueError(f"'{dataset_name}'' does not refer to a known dataset.")
 
@@ -98,7 +98,10 @@ def get_nerf_datasets(
     Image.MAX_IMAGE_PIXELS = _image_max_image_pixels
 
     scale_factors = [s_new / s for s, s_new in zip(images.shape[1:3], image_size)]
+    print(images.shape[1:3])
+    print(image_size)
 
+    print(n_cameras)
     if abs(scale_factors[0] - scale_factors[1]) > 1e-3:
         raise ValueError(
             "Non-isotropic scaling is not allowed. Consider changing the 'image_size' argument."

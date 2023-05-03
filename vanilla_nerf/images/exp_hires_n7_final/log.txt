@@ -1,0 +1,328 @@
+(cs7643-a4) C:\OMSCS\dl\project\nerf_project\vanilla_nerf>python main.py --config-name=nerf_lego_highres_n7
+main.py:381: UserWarning:
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+  @hydra.main(config_path='./configs', config_name='sphere')
+C:\ProgramData\Anaconda3\envs\cs7643-a4\lib\site-packages\hydra\_internal\hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+  ret = run_job(
+[400, 400] C:\OMSCS\dl\project\nerf_project\vanilla_nerf\data
+Loading dataset lego, image size=[400, 400] ...
+torch.Size([800, 800])
+[400, 400]
+400
+Rescaling dataset (factor=0.5)
+Epoch: 0000, Loss: 0.029212, PSNR: 15.344195: : 100it [00:32,  3.07it/s]
+Epoch: 0001, Loss: 0.010700, PSNR: 19.705718: : 100it [00:32,  3.08it/s]
+Epoch: 0002, Loss: 0.012865, PSNR: 18.905438: : 100it [00:31,  3.18it/s]
+Epoch: 0003, Loss: 0.011376, PSNR: 19.439816: : 100it [00:32,  3.07it/s]
+Epoch: 0004, Loss: 0.009168, PSNR: 20.376857: : 100it [00:32,  3.09it/s]
+Epoch: 0005, Loss: 0.006284, PSNR: 22.016834: : 100it [00:33,  3.00it/s]
+Epoch: 0006, Loss: 0.006284, PSNR: 22.017250: : 100it [00:32,  3.10it/s]
+Epoch: 0007, Loss: 0.009112, PSNR: 20.403181: : 100it [00:32,  3.10it/s]
+Epoch: 0008, Loss: 0.006603, PSNR: 21.802064: : 100it [00:32,  3.12it/s]
+Epoch: 0009, Loss: 0.006585, PSNR: 21.813718: : 100it [00:32,  3.07it/s]
+Epoch: 0010, Loss: 0.010414, PSNR: 19.823271: : 100it [00:32,  3.05it/s]
+Rendering image 0
+Rendering image 1
+Rendering image 2
+Rendering image 3
+Rendering image 4
+Rendering image 5
+Rendering image 6
+Rendering image 7
+Rendering image 8
+Rendering image 9
+Rendering image 10
+Rendering image 11
+Rendering image 12
+Rendering image 13
+Rendering image 14
+Rendering image 15
+Rendering image 16
+Rendering image 17
+Rendering image 18
+Rendering image 19
+Epoch: 0011, Loss: 0.009000, PSNR: 20.457120: : 100it [00:31,  3.19it/s]
+Epoch: 0012, Loss: 0.007765, PSNR: 21.098051: : 100it [00:31,  3.15it/s]
+Epoch: 0013, Loss: 0.007675, PSNR: 21.148480: : 100it [00:32,  3.09it/s]
+Epoch: 0014, Loss: 0.007715, PSNR: 21.125806: : 100it [00:32,  3.10it/s]
+Epoch: 0015, Loss: 0.004974, PSNR: 23.032191: : 100it [00:31,  3.17it/s]
+Epoch: 0016, Loss: 0.006543, PSNR: 21.841290: : 100it [00:31,  3.14it/s]
+Epoch: 0017, Loss: 0.005405, PSNR: 22.671617: : 100it [00:32,  3.07it/s]
+Epoch: 0018, Loss: 0.004263, PSNR: 23.701364: : 100it [00:32,  3.10it/s]
+Epoch: 0019, Loss: 0.006137, PSNR: 22.120085: : 100it [00:32,  3.10it/s]
+Epoch: 0020, Loss: 0.007677, PSNR: 21.147531: : 100it [00:31,  3.14it/s]
+Rendering image 0
+Rendering image 1
+Rendering image 2
+Rendering image 3
+Rendering image 4
+Rendering image 5
+Rendering image 6
+Rendering image 7
+Rendering image 8
+Rendering image 9
+Rendering image 10
+Rendering image 11
+Rendering image 12
+Rendering image 13
+Rendering image 14
+Rendering image 15
+Rendering image 16
+Rendering image 17
+Rendering image 18
+Rendering image 19
+Epoch: 0021, Loss: 0.007289, PSNR: 21.372766: : 100it [00:31,  3.19it/s]
+Epoch: 0022, Loss: 0.006514, PSNR: 21.860602: : 100it [00:30,  3.23it/s]
+Epoch: 0023, Loss: 0.004507, PSNR: 23.460231: : 100it [00:31,  3.19it/s]
+Epoch: 0024, Loss: 0.008212, PSNR: 20.855145: : 100it [00:32,  3.11it/s]
+Epoch: 0025, Loss: 0.006961, PSNR: 21.572747: : 100it [00:32,  3.10it/s]
+Epoch: 0026, Loss: 0.004954, PSNR: 23.049428: : 100it [00:32,  3.08it/s]
+Epoch: 0027, Loss: 0.001293, PSNR: 28.880522: : 100it [00:32,  3.10it/s]
+Epoch: 0028, Loss: 0.003456, PSNR: 24.612669: : 100it [00:32,  3.12it/s]
+Epoch: 0029, Loss: 0.005592, PSNR: 22.523729: : 100it [00:31,  3.13it/s]
+Epoch: 0030, Loss: 0.004650, PSNR: 23.324462: : 100it [00:31,  3.17it/s]
+Rendering image 0
+Rendering image 1
+Rendering image 2
+Rendering image 3
+Rendering image 4
+Rendering image 5
+Rendering image 6
+Rendering image 7
+Rendering image 8
+Rendering image 9
+Rendering image 10
+Rendering image 11
+Rendering image 12
+Rendering image 13
+Rendering image 14
+Rendering image 15
+Rendering image 16
+Rendering image 17
+Rendering image 18
+Rendering image 19
+Epoch: 0031, Loss: 0.004812, PSNR: 23.175560: : 100it [00:31,  3.14it/s]
+Epoch: 0032, Loss: 0.003330, PSNR: 24.774868: : 100it [00:31,  3.22it/s]
+Epoch: 0033, Loss: 0.003506, PSNR: 24.551211: : 100it [00:31,  3.15it/s]
+Epoch: 0034, Loss: 0.006019, PSNR: 22.204269: : 100it [00:31,  3.16it/s]
+Epoch: 0035, Loss: 0.003847, PSNR: 24.147905: : 100it [00:31,  3.17it/s]
+Epoch: 0036, Loss: 0.003653, PSNR: 24.371955: : 100it [00:31,  3.15it/s]
+Epoch: 0037, Loss: 0.004574, PSNR: 23.395834: : 100it [00:32,  3.10it/s]
+Epoch: 0038, Loss: 0.003017, PSNR: 25.203231: : 100it [00:31,  3.14it/s]
+Epoch: 0039, Loss: 0.003939, PSNR: 24.044896: : 100it [00:31,  3.16it/s]
+Epoch: 0040, Loss: 0.003757, PSNR: 24.249930: : 100it [00:31,  3.15it/s]
+Rendering image 0
+Rendering image 1
+Rendering image 2
+Rendering image 3
+Rendering image 4
+Rendering image 5
+Rendering image 6
+Rendering image 7
+Rendering image 8
+Rendering image 9
+Rendering image 10
+Rendering image 11
+Rendering image 12
+Rendering image 13
+Rendering image 14
+Rendering image 15
+Rendering image 16
+Rendering image 17
+Rendering image 18
+Rendering image 19
+Epoch: 0041, Loss: 0.003097, PSNR: 25.089732: : 100it [00:31,  3.17it/s]
+Epoch: 0042, Loss: 0.003792, PSNR: 24.210244: : 100it [00:31,  3.18it/s]
+Epoch: 0043, Loss: 0.003633, PSNR: 24.395810: : 100it [00:31,  3.13it/s]
+Epoch: 0044, Loss: 0.002706, PSNR: 25.675661: : 100it [00:32,  3.12it/s]
+Epoch: 0045, Loss: 0.003205, PSNR: 24.940033: : 100it [00:31,  3.16it/s]
+Epoch: 0046, Loss: 0.003547, PSNR: 24.500346: : 100it [00:31,  3.17it/s]
+Epoch: 0047, Loss: 0.004451, PSNR: 23.514196: : 100it [00:31,  3.17it/s]
+Epoch: 0048, Loss: 0.007743, PSNR: 21.110081: : 100it [00:31,  3.16it/s]
+Epoch: 0049, Loss: 0.004777, PSNR: 23.207629: : 100it [00:31,  3.14it/s]
+Epoch: 0050, Loss: 0.003161, PSNR: 25.000879: : 100it [00:31,  3.18it/s]
+Storing checkpoint C:\OMSCS\dl\project\nerf_project\vanilla_nerf\./checkpoints_hires_n7.
+Rendering image 0
+Rendering image 1
+Rendering image 2
+Rendering image 3
+Rendering image 4
+Rendering image 5
+Rendering image 6
+Rendering image 7
+Rendering image 8
+Rendering image 9
+Rendering image 10
+Rendering image 11
+Rendering image 12
+Rendering image 13
+Rendering image 14
+Rendering image 15
+Rendering image 16
+Rendering image 17
+Rendering image 18
+Rendering image 19
+Epoch: 0051, Loss: 0.003358, PSNR: 24.738063: : 100it [00:31,  3.18it/s]
+Epoch: 0052, Loss: 0.004145, PSNR: 23.824153: : 100it [00:30,  3.24it/s]
+Epoch: 0053, Loss: 0.003996, PSNR: 23.983127: : 100it [00:31,  3.17it/s]
+Epoch: 0054, Loss: 0.005311, PSNR: 22.747120: : 100it [00:31,  3.13it/s]
+Epoch: 0055, Loss: 0.004137, PSNR: 23.832582: : 100it [00:31,  3.15it/s]
+Epoch: 0056, Loss: 0.002486, PSNR: 26.042950: : 100it [00:31,  3.15it/s]
+Epoch: 0057, Loss: 0.003188, PSNR: 24.963302: : 100it [00:31,  3.15it/s]
+Epoch: 0058, Loss: 0.003762, PSNR: 24.244085: : 100it [00:31,  3.15it/s]
+Epoch: 0059, Loss: 0.001911, PSNR: 27.184273: : 100it [00:31,  3.17it/s]
+Epoch: 0060, Loss: 0.002015, PSNR: 26.955392: : 100it [00:31,  3.16it/s]
+Rendering image 0
+Rendering image 1
+Rendering image 2
+Rendering image 3
+Rendering image 4
+Rendering image 5
+Rendering image 6
+Rendering image 7
+Rendering image 8
+Rendering image 9
+Rendering image 10
+Rendering image 11
+Rendering image 12
+Rendering image 13
+Rendering image 14
+Rendering image 15
+Rendering image 16
+Rendering image 17
+Rendering image 18
+Rendering image 19
+Epoch: 0061, Loss: 0.002237, PSNR: 26.500757: : 100it [00:31,  3.13it/s]
+Epoch: 0062, Loss: 0.002841, PSNR: 25.464338: : 100it [00:31,  3.19it/s]
+Epoch: 0063, Loss: 0.002784, PSNR: 25.552312: : 100it [00:32,  3.12it/s]
+Epoch: 0064, Loss: 0.002371, PSNR: 26.248711: : 100it [00:32,  3.09it/s]
+Epoch: 0065, Loss: 0.003022, PSNR: 25.194992: : 100it [00:32,  3.07it/s]
+Epoch: 0066, Loss: 0.003739, PSNR: 24.271123: : 100it [00:31,  3.16it/s]
+Epoch: 0067, Loss: 0.003153, PSNR: 25.011536: : 100it [00:32,  3.11it/s]
+Epoch: 0068, Loss: 0.002511, PSNR: 25.999740: : 100it [00:32,  3.08it/s]
+Epoch: 0069, Loss: 0.002938, PSNR: 25.317425: : 100it [00:31,  3.14it/s]
+Epoch: 0070, Loss: 0.003472, PSNR: 24.592843: : 100it [00:31,  3.13it/s]
+Rendering image 0
+Rendering image 1
+Rendering image 2
+Rendering image 3
+Rendering image 4
+Rendering image 5
+Rendering image 6
+Rendering image 7
+Rendering image 8
+Rendering image 9
+Rendering image 10
+Rendering image 11
+Rendering image 12
+Rendering image 13
+Rendering image 14
+Rendering image 15
+Rendering image 16
+Rendering image 17
+Rendering image 18
+Rendering image 19
+Epoch: 0071, Loss: 0.002457, PSNR: 26.094999: : 100it [00:31,  3.15it/s]
+Epoch: 0072, Loss: 0.002568, PSNR: 25.902775: : 100it [00:31,  3.13it/s]
+Epoch: 0073, Loss: 0.002706, PSNR: 25.674364: : 100it [00:31,  3.16it/s]
+Epoch: 0074, Loss: 0.002756, PSNR: 25.595723: : 100it [00:32,  3.09it/s]
+Epoch: 0075, Loss: 0.002203, PSNR: 26.568839: : 100it [00:31,  3.13it/s]
+Epoch: 0076, Loss: 0.003233, PSNR: 24.902741: : 100it [00:32,  3.12it/s]
+Epoch: 0077, Loss: 0.002561, PSNR: 25.914811: : 100it [00:31,  3.17it/s]
+Epoch: 0078, Loss: 0.001620, PSNR: 27.902623: : 100it [00:31,  3.14it/s]
+Epoch: 0079, Loss: 0.002639, PSNR: 25.784184: : 100it [00:31,  3.15it/s]
+Epoch: 0080, Loss: 0.003540, PSNR: 24.508400: : 100it [00:32,  3.09it/s]
+Rendering image 0
+Rendering image 1
+Rendering image 2
+Rendering image 3
+Rendering image 4
+Rendering image 5
+Rendering image 6
+Rendering image 7
+Rendering image 8
+Rendering image 9
+Rendering image 10
+Rendering image 11
+Rendering image 12
+Rendering image 13
+Rendering image 14
+Rendering image 15
+Rendering image 16
+Rendering image 17
+Rendering image 18
+Rendering image 19
+Epoch: 0081, Loss: 0.004185, PSNR: 23.781875: : 100it [00:31,  3.16it/s]
+Epoch: 0082, Loss: 0.002488, PSNR: 26.038982: : 100it [00:31,  3.20it/s]
+Epoch: 0083, Loss: 0.003158, PSNR: 25.005117: : 100it [00:31,  3.15it/s]
+Epoch: 0084, Loss: 0.004760, PSNR: 23.222831: : 100it [00:32,  3.12it/s]
+Epoch: 0085, Loss: 0.003407, PSNR: 24.674720: : 100it [00:31,  3.17it/s]
+Epoch: 0086, Loss: 0.002221, PSNR: 26.532967: : 100it [00:32,  3.10it/s]
+Epoch: 0087, Loss: 0.001979, PSNR: 27.033375: : 100it [00:31,  3.13it/s]
+Epoch: 0088, Loss: 0.001952, PSNR: 27.092534: : 100it [00:31,  3.14it/s]
+Epoch: 0089, Loss: 0.002674, PSNR: 25.726935: : 100it [00:31,  3.15it/s]
+Epoch: 0090, Loss: 0.002882, PSNR: 25.402264: : 100it [00:32,  3.06it/s]
+Rendering image 0
+Rendering image 1
+Rendering image 2
+Rendering image 3
+Rendering image 4
+Rendering image 5
+Rendering image 6
+Rendering image 7
+Rendering image 8
+Rendering image 9
+Rendering image 10
+Rendering image 11
+Rendering image 12
+Rendering image 13
+Rendering image 14
+Rendering image 15
+Rendering image 16
+Rendering image 17
+Rendering image 18
+Rendering image 19
+Epoch: 0091, Loss: 0.002179, PSNR: 26.616024: : 100it [00:32,  3.12it/s]
+Epoch: 0092, Loss: 0.002657, PSNR: 25.753914: : 100it [00:31,  3.16it/s]
+Epoch: 0093, Loss: 0.003054, PSNR: 25.149192: : 100it [00:31,  3.16it/s]
+Epoch: 0094, Loss: 0.001765, PSNR: 27.529780: : 100it [00:32,  3.08it/s]
+Epoch: 0095, Loss: 0.001801, PSNR: 27.441453: : 100it [00:31,  3.14it/s]
+Epoch: 0096, Loss: 0.001049, PSNR: 29.789325: : 100it [00:32,  3.12it/s]
+Epoch: 0097, Loss: 0.003213, PSNR: 24.929304: : 100it [00:32,  3.10it/s]
+Epoch: 0098, Loss: 0.002966, PSNR: 25.276799: : 100it [00:32,  3.12it/s]
+Epoch: 0099, Loss: 0.001566, PSNR: 28.048530: : 100it [00:31,  3.19it/s]
+Epoch: 0100, Loss: 0.002126, PSNR: 26.721709: : 100it [00:31,  3.20it/s]
+Storing checkpoint C:\OMSCS\dl\project\nerf_project\vanilla_nerf\./checkpoints_hires_n7.
+Rendering image 0
+Rendering image 1
+Rendering image 2
+Rendering image 3
+Rendering image 4
+Rendering image 5
+Rendering image 6
+Rendering image 7
+Rendering image 8
+Rendering image 9
+Rendering image 10
+Rendering image 11
+Rendering image 12
+Rendering image 13
+Rendering image 14
+Rendering image 15
+Rendering image 16
+Rendering image 17
+Rendering image 18
+Rendering image 19
+Epoch: 0101, Loss: 0.002448, PSNR: 26.110267: : 100it [00:33,  3.01it/s]
+Epoch: 0102, Loss: 0.001652, PSNR: 27.818243: : 100it [00:32,  3.11it/s]
+Epoch: 0103, Loss: 0.002790, PSNR: 25.543014: : 100it [00:32,  3.08it/s]
+Epoch: 0104, Loss: 0.003070, PSNR: 25.126787: : 100it [00:33,  3.01it/s]
+Epoch: 0105, Loss: 0.001628, PSNR: 27.881273: : 100it [00:31,  3.14it/s]
+Epoch: 0106, Loss: 0.002542, PSNR: 25.945803: : 100it [00:31,  3.16it/s]
+Epoch: 0107, Loss: 0.002482, PSNR: 26.050240: : 100it [00:32,  3.03it/s]
+Epoch: 0108, Loss: 0.001732, PSNR: 27.610866: : 100it [00:32,  3.12it/s]
+Epoch: 0109, Loss: 0.002633, PSNR: 25.793585: : 100it [00:31,  3.20it/s]
+Epoch: 0110, Loss: 0.002075, PSNR: 26.828519: : 100it [00:31,  3.21it/s]
