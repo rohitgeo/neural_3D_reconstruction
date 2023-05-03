@@ -2,6 +2,7 @@
 
 ## NeRF
 Results of reimplementing NeRF
+
 ![](vanilla_nerf/images/part_3_hr_n6_noembed_240.gif)
 
 ## GNT
